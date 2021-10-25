@@ -26,6 +26,12 @@ namespace RestPairProgramming
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
+
+            services.AddCors(options => options.AddPolicy("allowAll",
+                builder => builder.AllowAnyOrigin()
+                .AllowAnyMethod()
+                .AllowAnyHeader()));
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -39,6 +45,8 @@ namespace RestPairProgramming
             app.UseHttpsRedirection();
 
             app.UseRouting();
+
+            app.UseCors("allowAll");
 
             app.UseAuthorization();
 
