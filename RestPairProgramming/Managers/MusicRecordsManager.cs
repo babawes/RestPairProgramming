@@ -20,7 +20,29 @@ namespace RestPairProgramming.Managers
             return Data;
         }
 
-        
+        public static List<MusicRecord> GetByTitle(string title)
+        {
+            return Data.FindAll((MusicRecord mr) => {
+                if (mr.Title.ToLowerInvariant().StartsWith(title.ToLowerInvariant())) return true;
+                else return false;
+            });
+        }
+
+        public static List<MusicRecord> GetByArtist(string artist)
+        {
+            return Data.FindAll((MusicRecord mr) => {
+                if (mr.Artist.ToLowerInvariant().StartsWith(artist.ToLowerInvariant())) return true;
+                else return false;
+            });
+        }
+
+        public static List<MusicRecord> GetByGenre(string genre)
+        {
+            return Data.FindAll((MusicRecord mr) => {
+                if (mr.Genre.ToLowerInvariant().StartsWith(genre.ToLowerInvariant())) return true;
+                else return false;
+            });
+        }
 
     }
 }
