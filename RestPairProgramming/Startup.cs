@@ -27,6 +27,8 @@ namespace RestPairProgramming
         {
             services.AddControllers();
 
+            services.AddSwaggerGen();
+
             services.AddCors(options => options.AddPolicy("allowAll",
                 builder => builder.AllowAnyOrigin()
                 .AllowAnyMethod()
@@ -41,6 +43,12 @@ namespace RestPairProgramming
             {
                 app.UseDeveloperExceptionPage();
             }
+
+            app.UseSwagger();
+
+            app.UseSwaggerUI(c => {
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "RestPairProgramming V1");
+            });
 
             app.UseHttpsRedirection();
 
