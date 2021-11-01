@@ -14,5 +14,15 @@ namespace PairProgrammingRestTesting {
         public void GetAllMusicRecordsReturnsRecords() {
             Assert.IsTrue(MusicRecordsManager.GetAll() is List<MusicRecord>);
         }
+
+        [TestMethod]
+        public void GetByTests_ExceptionTests()
+        {
+            MusicRecordsManager.GetByTitle("r");
+            MusicRecordsManager.GetByArtist("r");
+            
+            MusicRecordsManager.GetByGenre("r");
+            Assert.IsTrue(true);
+        }
     }
 }
