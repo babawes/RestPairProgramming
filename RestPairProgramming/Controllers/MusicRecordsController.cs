@@ -74,5 +74,17 @@ namespace RestPairProgramming.Controllers
             return BadRequest();
         }
 
+        [HttpDelete]
+        [Route("")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        public ActionResult<MusicRecord> Delete([FromBody] MusicRecord record)
+        {
+            if (MusicRecordsManager.DeleteMusicRecord(record))
+            {
+                Ok();
+            }
+            return NotFound();
+        }
     }
 }

@@ -26,5 +26,22 @@ namespace RestPairProgramming.Models
             PublicationYear = publicationYear;
             Genre = genre;
         }
+
+        public override bool Equals(object? obj)
+        {
+            if (obj != null)
+            {
+                if (obj is MusicRecord)
+                {
+                    MusicRecord record = (MusicRecord) obj;
+                    if (record.Title==this.Title && record.Artist == this.Artist && record.Duration == this.Duration && record.PublicationYear== this.PublicationYear && record.Genre == this.Genre)
+                    {
+                        return true;
+                    }
+                }
+            }
+
+            return false;
+        }
     }
 }

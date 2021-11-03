@@ -51,5 +51,9 @@ namespace RestPairProgramming.Managers
             return false;
         }
 
+        public static bool DeleteMusicRecord(MusicRecord record)
+        {
+            return Data.Remove(record);
+        }
     }
 }
