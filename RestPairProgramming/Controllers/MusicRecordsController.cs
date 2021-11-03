@@ -75,7 +75,7 @@ namespace RestPairProgramming.Controllers
         }
 
         [HttpDelete]
-        [Route("")]
+        [Route("delete")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         public ActionResult<MusicRecord> Delete([FromBody] MusicRecord record)
