@@ -69,7 +69,7 @@ namespace RestPairProgramming.Controllers
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         public ActionResult<MusicRecord> Add([FromBody] MusicRecord record) {
             if (MusicRecordsManager.AddMusicRecord(record)) {
-                Ok();
+                return Ok();
             }
             return BadRequest();
         }
@@ -82,7 +82,7 @@ namespace RestPairProgramming.Controllers
         {
             if (MusicRecordsManager.DeleteMusicRecord(record))
             {
-                Ok();
+                return Ok();
             }
             return NotFound();
         }
