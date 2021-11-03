@@ -44,5 +44,12 @@ namespace RestPairProgramming.Managers
             });
         }
 
+        public static bool AddMusicRecord(MusicRecord record) {
+            int tmp = Data.Count;
+            Data.Add(record);
+            if(tmp == Data.Count+1) { return true; }
+            return false;
+        }
+
     }
 }

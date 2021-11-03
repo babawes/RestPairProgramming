@@ -63,6 +63,16 @@ namespace RestPairProgramming.Controllers
             return Ok(MusicRecordsManager.GetByGenre(genre));
         }
 
+        [HttpPost]
+        [Route("")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        public ActionResult<MusicRecord> Add([FromBody] MusicRecord record) {
+            if (MusicRecordsManager.AddMusicRecord(record)) {
+                Ok();
+            }
+            return BadRequest();
+        }
 
     }
 }
