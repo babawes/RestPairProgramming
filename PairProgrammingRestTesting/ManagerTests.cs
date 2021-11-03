@@ -37,5 +37,13 @@ namespace PairProgrammingRestTesting {
             MusicRecordsManager.AddMusicRecord(testRecord);
             Assert.IsTrue(MusicRecordsManager.DeleteMusicRecord(testRecord));
         }
+
+        [TestMethod]
+        public void UpdateMusicRecordTest() {
+            MusicRecord testOldRecord = new MusicRecord("title", "artist", 0, 0, "genre");
+            MusicRecordsManager.AddMusicRecord(testOldRecord);
+            MusicRecord testNewRecord = new MusicRecord("better title", "even better artist", 9001, -1, "a better genre");
+            Assert.IsTrue(MusicRecordsManager.UpdateMusicRecord(testOldRecord, testNewRecord));
+        }
     }
 }

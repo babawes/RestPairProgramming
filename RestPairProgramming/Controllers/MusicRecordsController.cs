@@ -86,5 +86,16 @@ namespace RestPairProgramming.Controllers
             }
             return NotFound();
         }
+
+        [HttpPut]
+        [Route("")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        public ActionResult<MusicRecord> Update([FromBody] MusicRecord[] records) {
+            if (MusicRecordsManager.UpdateMusicRecord(records[0], records[1])) {
+                return Ok();
+            }
+            return BadRequest();
+        }
     }
 }

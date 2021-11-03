@@ -55,5 +55,12 @@ namespace RestPairProgramming.Managers
         {
             return Data.Remove(record);
         }
+
+        public static bool UpdateMusicRecord(MusicRecord oldRecord, MusicRecord newRecord) {
+            if(Data.Remove(oldRecord)) {
+                Data.Add(newRecord);
+            }
+            return Data.Contains(newRecord);
+        }
     }
 }
