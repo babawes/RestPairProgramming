@@ -24,5 +24,10 @@ namespace PairProgrammingRestTesting {
             MusicRecordsManager.GetByGenre("r");
             Assert.IsTrue(true);
         }
+
+        [TestMethod]
+        public void AddMusicRecordTest() {
+            Assert.IsTrue(MusicRecordsManager.AddMusicRecord(new MusicRecord("title", "artist", 0, 0, "genre")));
+        }
     }
 }
