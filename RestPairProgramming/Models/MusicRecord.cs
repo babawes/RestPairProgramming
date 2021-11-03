@@ -27,17 +27,14 @@ namespace RestPairProgramming.Models
             Genre = genre;
         }
 
-        public override bool Equals(object? obj)
+        public override bool Equals(object obj)
         {
-            if (obj != null)
+            if (obj != null && GetType() == obj.GetType())
             {
-                if (obj is MusicRecord)
+                MusicRecord record = (MusicRecord) obj;
+                if (record.Title == this.Title && record.Artist == this.Artist && record.Duration == this.Duration && record.PublicationYear == this.PublicationYear && record.Genre == this.Genre)
                 {
-                    MusicRecord record = (MusicRecord) obj;
-                    if (record.Title == this.Title && record.Artist == this.Artist && record.Duration == this.Duration && record.PublicationYear == this.PublicationYear && record.Genre == this.Genre)
-                    {
-                        return true;
-                    }
+                    return true;
                 }
             }
 
